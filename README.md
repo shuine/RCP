@@ -1,4 +1,4 @@
 # RCP
 
 It's a personal project.
-Just test somothing for my self.
+Just test something for my self.
