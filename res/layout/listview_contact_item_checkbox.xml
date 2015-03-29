@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal" 
+    android:clickable="true">
+    
+    <LinearLayout android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_contact"
+            android:id="@+id/image_contact"/>
+    </LinearLayout>
+    
+    <LinearLayout android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+         android:orientation="vertical">
+        
+		       <LinearLayout android:layout_width="match_parent"
+					      android:layout_height="30dp" 
+					      android:gravity="center"
+					      android:orientation="horizontal">
+		           <TextView android:layout_width="wrap_content"
+		               android:layout_height="match_parent"
+		               android:id="@+id/tv_contact_number"
+		               android:text="1#"/>
+		           <TextView android:layout_width="wrap_content"
+		               android:layout_height="match_parent"
+		               android:id="@+id/tv_contact_name"
+		               android:text="mr right"/>
+		       </LinearLayout>
+		    <LinearLayout android:layout_width="match_parent"
+		       android:layout_height="30dp"
+		       android:gravity="center"
+		        android:orientation="horizontal">
+		        <TextView android:layout_width="wrap_content"
+		              android:layout_height="match_parent" 
+		               android:id="@+id/tv_contact_sim"
+		               android:text="匹配度："/>
+		           <TextView android:layout_width="wrap_content"
+		               android:layout_height="match_parent"
+		               android:id="@+id/tv_contact_simpercent"
+		               android:text="mr right"/>
+		       
+		   </LinearLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout android:layout_width="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:layout_height="fill_parent" android:orientation="vertical">
+        <CheckBox android:layout_width="50dp"
+            android:layout_height="30dp"
+              android:clickable="false"
+            android:focusable="false"
+            android:background="@null"
+            android:focusableInTouchMode="false"
+            android:id="@+id/cb_contact_select"/>
+    </LinearLayout>
+
+</LinearLayout>

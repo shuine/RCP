@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_nav_tab_menu">
+        <item>全部结果</item>
+        <item>已联系</item>
+        <item>未联系</item>
+    </string-array>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <drawable name="action_bar_color">@android:color/holo_blue_light</drawable>
+    <color name="list_item_bg1">#ADD8E6</color>
+     <color name="list_item_bg2">#E0FFFF</color>
+     <color name="black">#000000</color>
+</resources>
