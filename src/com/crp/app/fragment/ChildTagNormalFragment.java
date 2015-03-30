@@ -1,7 +1,9 @@
 package com.crp.app.fragment;
 
+import com.crp.app.AddTagsActivity;
 import com.crp.app.R;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.AdapterView.OnItemClickListener;
 
 /**
@@ -19,6 +22,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class ChildTagNormalFragment extends BaseFragment implements OnClickListener,OnItemClickListener{
 	
 	private View rootView;
+	private Button child_tag_normal_add;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class ChildTagNormalFragment extends BaseFragment implements OnClickListe
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		rootView = inflater.inflate(R.layout.child_tag_normal_layout, container,false);
+		child_tag_normal_add = (Button)rootView.findViewById(R.id.child_tag_normal_add);
 		return rootView;//super.onCreateView(inflater, container, savedInstanceState);
 	}
 	
@@ -38,6 +43,7 @@ public class ChildTagNormalFragment extends BaseFragment implements OnClickListe
 	public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
+		child_tag_normal_add.setOnClickListener(this);
 	}
 	
 	@Override
@@ -68,6 +74,7 @@ public class ChildTagNormalFragment extends BaseFragment implements OnClickListe
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+		if(v==child_tag_normal_add)
+			startActivity(new Intent(getActivity(), AddTagsActivity.class));
 	}
 }

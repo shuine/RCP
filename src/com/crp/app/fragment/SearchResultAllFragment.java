@@ -8,6 +8,7 @@ import com.crp.app.R;
 import com.crp.app.SearchResultActivity;
 import com.crp.app.UserInfoActivity;
 import com.crp.app.bean.PersonModel;
+import com.crp.app.fragment.impl.I_FragListener;
 
 import android.content.Context;
 import android.content.Intent;
@@ -46,6 +47,12 @@ public class SearchResultAllFragment extends BaseFragment implements OnItemClick
     private Handler handler;
     
     private String TAG = "SearchResultAllFragment";
+    I_FragListener listener;
+    
+    public SearchResultAllFragment(I_FragListener fragListener) {
+		// TODO Auto-generated constructor stub
+    	listener = fragListener;
+	}
     
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -122,7 +129,7 @@ public class SearchResultAllFragment extends BaseFragment implements OnItemClick
 					Toast.makeText(mContext, "请选择客户", 1000).show();
 					return;
 				}
-				if(num == 1){
+				/*if(num == 1){
 					if(handler != null){
 						handler.sendEmptyMessage(1);
 					}
@@ -130,7 +137,8 @@ public class SearchResultAllFragment extends BaseFragment implements OnItemClick
 					if(handler != null){
 						handler.sendEmptyMessage(2);
 					}
-				}
+				}*/
+				listener.jump();
 				
 				break;
 			}

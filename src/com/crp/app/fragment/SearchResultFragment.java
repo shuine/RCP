@@ -207,7 +207,7 @@ public class SearchResultFragment extends BaseFragment {
         	//Fragment ft = null;
 			switch (position) {
 			case 0:
-				ft = new SearchResultAllFragment();
+				ft = new SearchResultAllFragment(fragListener);
 				Bundle args = new Bundle();
 				//args.putString(Constant.ARGUMENTS_NAME, mTextTabs[position].getText().toString());
 				ft.setArguments(args);

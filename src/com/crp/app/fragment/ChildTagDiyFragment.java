@@ -1,5 +1,7 @@
 package com.crp.app.fragment;
 
+import com.crp.app.R;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,6 +14,9 @@ import android.view.ViewGroup;
  *
  */
 public class ChildTagDiyFragment extends BaseFragment {
+	
+	private View mRootView;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -22,7 +27,8 @@ public class ChildTagDiyFragment extends BaseFragment {
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		return super.onCreateView(inflater, container, savedInstanceState);
+		mRootView = inflater.inflate(R.layout.child_tag_diy_layout, container, false);
+		return mRootView;//super.onCreateView(inflater, container, savedInstanceState);
 	}
 	
 	@Override

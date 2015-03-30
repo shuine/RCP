@@ -6,20 +6,20 @@
     android:paddingRight="15dp"
     android:orientation="vertical" >
     <TextView
-        android:id="@+id/child_tag_normal_txt"
+        android:id="@+id/child_tag_diy_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test"
+        android:text="diy tags"
         android:gravity="center_horizontal" />
     <Button
-        android:id="@+id/child_tag_normal_add"
+        android:id="@+id/child_tag_diy_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/tag_add_normal_str"
         android:background="@drawable/button_shape" />
 	<ListView
-	    android:id="@+id/child_tag_normal_list"
+	    android:id="@+id/child_tag_diy_list"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
 	    android:fadingEdge="none"

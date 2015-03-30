@@ -29,6 +29,9 @@
         <activity
             android:name=".UserInfoActivity" android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".AddTagsActivity" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

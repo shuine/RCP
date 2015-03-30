@@ -13,4 +13,6 @@
     <string name="send_sms_str">发送短信</string>
     <string name="call_phone_str">拨打电弧</string>
     <string name="tag_add_normal_str">添加常用标签</string>
+    
+    <string name="add_tags_frag_str">标签列表</string>
 </resources>

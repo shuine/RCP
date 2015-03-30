@@ -4,6 +4,15 @@ public class TAGModel {
 	private String name;
 	private String num;
 	private String time;
+	private boolean isHasChild;
+
+	public boolean isHasChild() {
+		return isHasChild;
+	}
+
+	public void setHasChild(boolean isHasChild) {
+		this.isHasChild = isHasChild;
+	}
 
 	public String getName() {
 		return name;

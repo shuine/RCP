@@ -1,5 +1,6 @@
 package com.crp.app;
 import com.crp.app.fragment.SearchResultFragment;
+import com.crp.app.fragment.SendMessageFragment;
 import com.crp.app.fragment.impl.I_FragListener;
 
 import android.os.Bundle;
@@ -35,12 +36,16 @@ public class SearchResultActivity extends FragmentActivity implements I_FragList
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.search_result_main);
+		setContentView(R.layout.fragment_main);
 		// 初始化布局元素
 		//initViews();
 		fragmentManager = getSupportFragmentManager();//FragmentManager();
 		// 第一次启动时选中第0个tab
-		setTabSelection(0);
+		//setTabSelection(0);
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
+		searchFragment = new SearchResultFragment(this);
+		transaction.replace(R.id.content, searchFragment);
+		transaction.commit();
 	}
 	
 
@@ -49,7 +54,7 @@ public class SearchResultActivity extends FragmentActivity implements I_FragList
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
 			if(msg.what == 1){
-				setTabSelection(4);
+				//setTabSelection(4);
 			}
 		}
 	};
@@ -77,7 +82,7 @@ public class SearchResultActivity extends FragmentActivity implements I_FragList
 			if (searchFragment == null) {
 				// 如果ContactsFragment为空，则创建一个并添加到界面上
 				searchFragment = new SearchResultFragment(this);
-				transaction.add(R.id.content, searchFragment);
+				transaction.replace(R.id.content, searchFragment);
 			} else {
 				// 如果ContactsFragment不为空，则直接将它显示出来
 				transaction.show(searchFragment);
@@ -102,7 +107,11 @@ public class SearchResultActivity extends FragmentActivity implements I_FragList
 	@Override
 	public void jump() {
 		// TODO Auto-generated method stub
-		setTabSelection(4);
+		//setTabSelection(4);
+		FragmentTransaction transaction = fragmentManager.beginTransaction();
+		transaction.replace(R.id.content, new SendMessageFragment(this));
+		transaction.addToBackStack(null);
+		transaction.commit();
 	}
 	
 }

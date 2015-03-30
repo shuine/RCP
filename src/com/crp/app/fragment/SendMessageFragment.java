@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 public class SendMessageFragment extends BaseFragment {
 
 	private I_FragListener fragListener;
-	private ImageView mImageView;
+	private Button mImageView;
 	private EditText mEditText;
 	
 	@Override
@@ -33,7 +34,7 @@ public class SendMessageFragment extends BaseFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-		mImageView = (ImageView) getView().findViewById(R.id.imageview_send_message);
+		mImageView = (Button) getView().findViewById(R.id.imageview_send_message);
 		mEditText = (EditText) getView().findViewById(R.id.edittext_message);
 		mImageView.setOnClickListener(new OnClickListener(){
 
@@ -50,12 +51,18 @@ public class SendMessageFragment extends BaseFragment {
 					.setPositiveButton("是", null)  
 					.setNegativeButton("否", null)  
 					.show(); 
+					onDestroy();
 				}
 			}
 			
 		});
 	}
 
+	@Override
+	public void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
 
 
 	public SendMessageFragment(I_FragListener listener){

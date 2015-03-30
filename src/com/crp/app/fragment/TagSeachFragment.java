@@ -1,5 +1,6 @@
 package com.crp.app.fragment;
 
+import com.crp.app.AddTagsActivity;
 import com.crp.app.R;
 import com.crp.app.SearchResultActivity;
 import com.crp.app.utils.TransferUtils;
@@ -54,7 +55,7 @@ public class TagSeachFragment extends BaseFragment implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		if(v==tag_search_add_btn){
-			TransferUtils.getInstance().transferActivity(getActivity(), SearchResultActivity.class);
+			TransferUtils.getInstance().transferActivity(getActivity(), AddTagsActivity.class);
 		}
 	}
 }
