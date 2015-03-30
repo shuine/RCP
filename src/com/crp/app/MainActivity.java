@@ -1,10 +1,10 @@
-package com.crpapp;
-import com.crpapp.fragment.SearchFragment;
-import com.crpapp.fragment.SearchRecordFragment;
-import com.crpapp.fragment.SearchResultFragment;
-import com.crpapp.fragment.SettingFragment;
-import com.crpapp.fragment.TagsManagerFragment;
-import com.crpapp.fragment.impl.I_FragListener;
+package com.crp.app;
+import com.crp.app.fragment.SearchFragment;
+import com.crp.app.fragment.SearchRecordFragment;
+import com.crp.app.fragment.SearchResultFragment;
+import com.crp.app.fragment.SettingFragment;
+import com.crp.app.fragment.TagsManagerFragment;
+import com.crp.app.fragment.impl.I_FragListener;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -203,19 +203,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener,I_
 			// 当点击了消息tab时，改变控件的图片和文字颜色
 			messageImage.setImageResource(R.drawable.message_selected);
 			searchRecordText.setTextColor(Color.WHITE);
-			if (messageFragment == null) {
-				// 如果MessageFragment为空，则创建一个并添加到界面上
-				messageFragment = new TagsManagerFragment();
-				transaction.add(R.id.content, messageFragment);
-			} else {
-				// 如果MessageFragment不为空，则直接将它显示出来
-				transaction.show(messageFragment);
-			}
-			break;
-		case 2:
-			// 当点击了动态tab时，改变控件的图片和文字颜色
-			newsImage.setImageResource(R.drawable.news_selected);
-			tagmanagerText.setTextColor(Color.WHITE);
 			if (newsFragment == null) {
 				// 如果NewsFragment为空，则创建一个并添加到界面上
 				newsFragment = new SearchRecordFragment();
@@ -223,6 +210,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener,I_
 			} else {
 				// 如果NewsFragment不为空，则直接将它显示出来
 				transaction.show(newsFragment);
+			}
+			break;
+		case 2:
+			// 当点击了动态tab时，改变控件的图片和文字颜色
+			newsImage.setImageResource(R.drawable.news_selected);
+			tagmanagerText.setTextColor(Color.WHITE);
+			if (messageFragment == null) {
+				// 如果MessageFragment为空，则创建一个并添加到界面上
+				messageFragment = new TagsManagerFragment();
+				transaction.add(R.id.content, messageFragment);
+			} else {
+				// 如果MessageFragment不为空，则直接将它显示出来
+				transaction.show(messageFragment);
 			}
 			break;
 		/*case 3:

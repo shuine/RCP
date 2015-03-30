@@ -1,18 +1,20 @@
-package com.crpapp.fragment;
+package com.crp.app.fragment;
 
-import com.crpapp.R;
+import com.crp.app.R;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class TagsManagerFragment extends BaseFragment {
+public class SettingFragment extends BaseFragment {
 
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View messageLayout = inflater.inflate(R.layout.tags_layout,
+		View settingLayout = inflater.inflate(R.layout.setting_layout,
 				container, false);
-		return messageLayout;
+		return settingLayout;
 	}
+
 }

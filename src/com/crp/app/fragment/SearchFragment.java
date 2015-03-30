@@ -1,8 +1,9 @@
-package com.crpapp.fragment;
+package com.crp.app.fragment;
 
 
-import com.crpapp.R;
-import com.crpapp.fragment.impl.I_FragListener;
+import com.crp.app.R;
+import com.crp.app.fragment.impl.I_FragListener;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -73,7 +74,7 @@ public class SearchFragment extends BaseFragment {
 		//Toast.makeText(getActivity(), "indicatorWidth is:"+indicatorWidth, 1).show();
 		cursor_Params.width = indicatorWidth;
 		iv_nav_indicator.setLayoutParams(cursor_Params);
-		addresses = getActivity().getResources().getStringArray(R.array.search_nav_tab_menu);
+		addresses = getActivity().getResources().getStringArray(R.array.search_index_menu);
     	mTabWidget = (TabWidget) mRootView.findViewById(R.id.tabWidget1);
         mTabWidget.setStripEnabled(false);
         mTextTabs[0] = new TextView(mContext);

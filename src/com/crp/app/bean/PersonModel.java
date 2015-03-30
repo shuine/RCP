@@ -1,6 +1,6 @@
-package com.crpapp.bean;
+package com.crp.app.bean;
 
-public class Person {
+public class PersonModel {
 
 	private String name;
 	private String number;

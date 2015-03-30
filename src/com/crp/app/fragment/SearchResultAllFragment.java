@@ -1,14 +1,16 @@
-package com.crpapp.fragment;
+package com.crp.app.fragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.crpapp.R;
-import com.crpapp.SearchResultActivity;
-import com.crpapp.bean.Person;
+import com.crp.app.R;
+import com.crp.app.SearchResultActivity;
+import com.crp.app.UserInfoActivity;
+import com.crp.app.bean.PersonModel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +19,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -29,11 +33,11 @@ import android.widget.Toast;
  * @author leker
  *
  */
-public class SearchResultAllFragment extends BaseFragment {
+public class SearchResultAllFragment extends BaseFragment implements OnItemClickListener{
 	
 	private View rootView;
 	ListView lv;  
-    List<Person> persons = new ArrayList<Person>();  
+    List<PersonModel> persons = new ArrayList<PersonModel>();  
     Context mContext;  
     MyListAdapter adapter;  
     List<Integer> listItemID = new ArrayList<Integer>();  
@@ -69,6 +73,7 @@ public class SearchResultAllFragment extends BaseFragment {
 		lv = (ListView) getView().findViewById(R.id.lv_person);
 		adapter = new MyListAdapter(persons);  
 	    lv.setAdapter(adapter);  
+	    lv.setOnItemClickListener(this);
 	    mCheckBoxAll = (CheckBox) getView().findViewById(R.id.checkbox_select_all);
 	    mBtnSend = (Button) getView().findViewById(R.id.btn_send_message);
 	    mCheckBoxAll.setOnClickListener(clickListener);
@@ -79,10 +84,10 @@ public class SearchResultAllFragment extends BaseFragment {
      * 模拟数据  
      */  
     private void initPersonData(){  
-        Person mPerson;  
+        PersonModel mPerson;  
         for(int i=1;i<=12;i++){  
-            mPerson = new Person();  
-            mPerson.setName("Andy"+i);  
+            mPerson = new PersonModel();  
+            mPerson.setName("All"+i);  
             persons.add(mPerson);  
         }  
     }  
@@ -135,12 +140,12 @@ public class SearchResultAllFragment extends BaseFragment {
 	  //自定义ListView适配器  
     class MyListAdapter extends BaseAdapter{  
         List<Boolean> mChecked;  
-        List<Person> listPerson;  
+        List<PersonModel> listPerson;  
         HashMap<Integer,View> map = new HashMap<Integer,View>();   
         Boolean mIsCheckAll = false;
           
-        public MyListAdapter(List<Person> list){  
-            listPerson = new ArrayList<Person>();  
+        public MyListAdapter(List<PersonModel> list){  
+            listPerson = new ArrayList<PersonModel>();  
             listPerson = list;  
               
             mChecked = new ArrayList<Boolean>();  
@@ -214,5 +219,15 @@ public class SearchResultAllFragment extends BaseFragment {
     	TextView name;
     	TextView simPercent;
     }
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		Toast.makeText(getActivity(), "position is:"+position, 1).show();
+		Intent intent = new Intent();
+		intent.setClass(getActivity(), UserInfoActivity.class);
+		startActivity(intent);
+	}
       
 }

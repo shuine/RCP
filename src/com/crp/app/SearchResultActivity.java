@@ -1,10 +1,6 @@
-package com.crpapp;
-import com.crpapp.fragment.SearchRecordFragment;
-import com.crpapp.fragment.SearchResultFragment;
-import com.crpapp.fragment.SendMessageFragment;
-import com.crpapp.fragment.SettingFragment;
-import com.crpapp.fragment.TagsManagerFragment;
-import com.crpapp.fragment.impl.I_FragListener;
+package com.crp.app;
+import com.crp.app.fragment.SearchResultFragment;
+import com.crp.app.fragment.impl.I_FragListener;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -49,17 +45,13 @@ public class SearchResultActivity extends FragmentActivity implements I_FragList
 	
 
     private Handler mHandler = new Handler(){
-
 		@Override
 		public void handleMessage(Message msg) {
 			// TODO Auto-generated method stub
-
 			if(msg.what == 1){
 				setTabSelection(4);
 			}
-			
 		}
-		
 	};
 	
 	public Handler getHandler(){

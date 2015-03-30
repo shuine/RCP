@@ -1,6 +1,6 @@
-package com.crpapp.fragment;
+package com.crp.app.fragment;
 
-import com.crpapp.R;
+import com.crp.app.R;
 
 import android.app.ActionBar;
 import android.os.Bundle;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:orientation="vertical" >
+    
+    <Button
+        android:id="@+id/child_tag_normal_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/tag_add_normal_str"
+        android:background="@drawable/button_shape" />
+	<ListView
+	    android:id="@+id/child_tag_normal_list"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:fadingEdge="none"
+	    android:cacheColorHint="@color/transparent" >
+	    
+	</ListView>
+</LinearLayout>

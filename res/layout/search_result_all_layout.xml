@@ -19,7 +19,7 @@
 	        android:layout_height="match_parent"
 	        android:id="@+id/btn_send_message" 
 	        android:text="群发短信"
-	        android:layout_toRightOf="@id/checkbox_select_all"/>
+	        android:layout_alignParentRight="true"/>
 	</RelativeLayout>
 	
     <ListView

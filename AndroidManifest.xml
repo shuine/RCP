@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.crpapp"
+    package="com.crp.app"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <application
@@ -25,6 +25,9 @@
         </activity>
         <activity
             android:name=".SearchResultActivity" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".UserInfoActivity" android:screenOrientation="portrait">
         </activity>
     </application>
 

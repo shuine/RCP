@@ -6,4 +6,11 @@
     <string name="hello_world">Hello world!</string>
 	
     <string name="nav_desc">nav_desc</string>
+    
+    <string name="user_record_empty">暂无操作记录 </string>
+    <string name="user_remark_empty">暂无备注记录 </string>
+    
+    <string name="send_sms_str">发送短信</string>
+    <string name="call_phone_str">拨打电弧</string>
+    <string name="tag_add_normal_str">添加常用标签</string>
 </resources>

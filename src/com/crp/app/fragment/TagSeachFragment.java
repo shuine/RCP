@@ -1,8 +1,8 @@
-package com.crpapp.fragment;
+package com.crp.app.fragment;
 
-import com.crpapp.R;
-import com.crpapp.SearchResultActivity;
-import com.crpapp.utils.TransferUtils;
+import com.crp.app.R;
+import com.crp.app.SearchResultActivity;
+import com.crp.app.utils.TransferUtils;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

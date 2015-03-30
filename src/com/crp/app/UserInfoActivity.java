@@ -1,21 +1,24 @@
-package com.crpapp.fragment;
+package com.crp.app;
 
-import com.crpapp.R;
-import com.crpapp.fragment.impl.I_FragListener;
+import com.crp.app.fragment.BaseFragment;
+import com.crp.app.fragment.UserInfoFragment;
+import com.crp.app.fragment.UserRecordFragment;
+import com.crp.app.fragment.UserRemarkFragment;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.LinearInterpolator;
@@ -25,60 +28,52 @@ import android.widget.TabWidget;
 import android.widget.TextView;
 
 /**
- * 查询结果
+ * 用户的详细信息
  * @author leker
  *
  */
-public class SearchResultFragment extends BaseFragment {
-	private View mRootView;
+public class UserInfoActivity extends FragmentActivity {
+	
     private ViewPager mViewPager;
     private PagerAdapter mPagerAdapter;
     private TabWidget mTabWidget;
-    private String[] addresses = { "first", "second", "third" };
+    private String[] addresses = { "1", "2", "3" };
     private TextView[] mTextTabs = new TextView[addresses.length];
     private Context mContext;
     private int currentIndicatorLeft = 0;
     private ImageView iv_nav_indicator;
     private int indicatorWidth=0;
     
-    private I_FragListener fragListener;
-    
-    public SearchResultFragment(I_FragListener listener) {
-		// TODO Auto-generated constructor stub
-    	fragListener = listener;
-	}
-	
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle arg0) {
 		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		mContext = getActivity();
-	}
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		mContext = getActivity();
-		mRootView = inflater.inflate(R.layout.search_result_layout, container, false);
-		return mRootView;
+		super.onCreate(arg0);
+		setContentView(R.layout.tabwidget_viewpager_layout);
+		mContext = this;
+		initView();
+		initActionBar();
 	}
 	
+	private void initActionBar(){
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle("查看用户");
+		actionBar.setDisplayHomeAsUpEnabled(true);    
+	}
 	
-	@Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-    	// TODO Auto-generated method stub
-    	super.onActivityCreated(savedInstanceState);
-    	iv_nav_indicator = (ImageView)mRootView.findViewById(R.id.tab_pager_nav_indicator_result);
+	private void initView(){
+		
+		iv_nav_indicator = (ImageView)findViewById(R.id.tab_pager_nav_indicator);
     	DisplayMetrics dm = new DisplayMetrics();
-		getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		indicatorWidth = dm.widthPixels /3;
 		
 		LayoutParams cursor_Params = iv_nav_indicator.getLayoutParams();
 		//Toast.makeText(getActivity(), "indicatorWidth is:"+indicatorWidth, 1).show();
 		cursor_Params.width = indicatorWidth;
 		iv_nav_indicator.setLayoutParams(cursor_Params);
-		addresses = getActivity().getResources().getStringArray(R.array.search_nav_tab_menu);
-    	mTabWidget = (TabWidget) mRootView.findViewById(R.id.tabWidget_result1);
+		addresses = getResources().getStringArray(R.array.user_info_tab_menu);
+		//Log.i("UserInfoActivity", "addresses.size() is:"+addresses.length);
+    	mTabWidget = (TabWidget) findViewById(R.id.tabWidget1);
         mTabWidget.setStripEnabled(false);
         mTextTabs[0] = new TextView(mContext);
         mTextTabs[0].setFocusable(true);
@@ -109,15 +104,39 @@ public class SearchResultFragment extends BaseFragment {
         mTabWidget.addView(mTextTabs[2]);
         mTextTabs[2].setOnClickListener(mTabClickListener);
 
-        mViewPager = (ViewPager) mRootView.findViewById(R.id.viewPager_result1);
-        mPagerAdapter = new MyPagerAdapter(getActivity().getSupportFragmentManager());
+        mViewPager = (ViewPager) findViewById(R.id.viewPager1);
+        mPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setOnPageChangeListener(mPageChangeListener);
         mViewPager.setOffscreenPageLimit(2);
 
         mTabWidget.setCurrentTab(0);
-        //mTabWidget.setOnFocusChangeListener(mTabChangeListener);
-    }
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+	
+	private OnClickListener mTabClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v)
+        {
+            if (v == mTextTabs[0])
+            {
+                mViewPager.setCurrentItem(0);
+            } else if (v == mTextTabs[1])
+            {
+                mViewPager.setCurrentItem(1);
+            } else if (v == mTextTabs[2])
+            {
+                mViewPager.setCurrentItem(2);
+            }
+            v.setSelected(true);
+            startAniation(v);
+        }
+    };
     
     private void startAniation(View v){
 		TranslateAnimation animation = new TranslateAnimation(
@@ -149,24 +168,6 @@ public class SearchResultFragment extends BaseFragment {
 		});*/
     }
     
-    private OnClickListener mTabClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v)
-        {
-            if (v == mTextTabs[0])
-            {
-                mViewPager.setCurrentItem(0);
-            } else if (v == mTextTabs[1])
-            {
-                mViewPager.setCurrentItem(1);
-            } else if (v == mTextTabs[2])
-            {
-                mViewPager.setCurrentItem(2);
-            }
-            v.setSelected(true);
-            startAniation(v);
-        }
-    };
 
     private OnPageChangeListener mPageChangeListener = new OnPageChangeListener() {
 
@@ -207,16 +208,16 @@ public class SearchResultFragment extends BaseFragment {
         	//Fragment ft = null;
 			switch (position) {
 			case 0:
-				ft = new SearchResultAllFragment();
+				ft = new UserInfoFragment();
 				Bundle args = new Bundle();
 				//args.putString(Constant.ARGUMENTS_NAME, mTextTabs[position].getText().toString());
 				ft.setArguments(args);
 				break;
 			case 1:
-				ft = new SearchResultContactedFragment();
+				ft = new UserRecordFragment();
 				break;
 			case 2:
-				ft = new SearchResultUncontactFragment();
+				ft = new UserRemarkFragment();
 				break;
 			default:
 				break;
@@ -229,18 +230,16 @@ public class SearchResultFragment extends BaseFragment {
             return addresses.length;
         }
     }
-    
-    public interface ChangeActionModeListener{
-		public void changeActionMode(int mode);
-	}
-
-	/*@Override
-	public void myOnKeyDown(int keyCode) {
+	
+	@Override
+	protected void onPause() {
 		// TODO Auto-generated method stub
-		switch(mode){
-		case Constant.LOCAL_FILE:
-			((FilesUIFragment)ft).myOnKeyDown(keyCode);
-			break;
-		}
-	}*/
+		super.onPause();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+	}
 }

@@ -1,7 +1,7 @@
-package com.crpapp.fragment;
+package com.crp.app.fragment;
 
-import com.crpapp.R;
-import com.crpapp.fragment.impl.I_FragListener;
+import com.crp.app.R;
+import com.crp.app.fragment.impl.I_FragListener;
 
 import android.app.AlertDialog;
 import android.os.Bundle;

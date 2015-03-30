@@ -1,8 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <string-array name="search_index_menu">
+        <item>查询</item>
+        <item>标签组查询</item>
+        <item>关键字查询</item>
+    </string-array>
+    
     <string-array name="search_nav_tab_menu">
         <item>全部结果</item>
         <item>已联系</item>
         <item>未联系</item>
+    </string-array>
+    
+    <string-array name="user_info_tab_menu">
+        <item>客户信息</item>
+        <item>操作记录</item>
+        <item>备注</item>
+    </string-array>
+    
+    <string-array name="tags_info_tab_menu">
+        <item>常用标签</item>
+        <item>自定义人群</item>
+        <item>系统标签</item>
     </string-array>
 </resources>

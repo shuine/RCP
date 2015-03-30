@@ -1,4 +1,4 @@
-package com.crpapp.utils;
+package com.crp.app.utils;
 
 import android.content.Context;
 import android.content.Intent;
